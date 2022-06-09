@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreProductPropertiesRequest;
 use App\Http\Requests\UpdateProductPropertiesRequest;
-use App\Models\ProductProperties;
+use App\Models\ProductProperty;
 
-class ProductPropertiesController extends Controller
+class ProductPropertyController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -42,10 +42,10 @@ class ProductPropertiesController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\ProductProperties  $productProperties
+     * @param  \App\Models\ProductProperty  $productProperties
      * @return \Illuminate\Http\Response
      */
-    public function show(ProductProperties $productProperties)
+    public function show(ProductProperty $productProperties)
     {
         //
     }
@@ -53,10 +53,10 @@ class ProductPropertiesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\ProductProperties  $productProperties
+     * @param  \App\Models\ProductProperty  $productProperties
      * @return \Illuminate\Http\Response
      */
-    public function edit(ProductProperties $productProperties)
+    public function edit(ProductProperty $productProperties)
     {
         //
     }
@@ -65,10 +65,10 @@ class ProductPropertiesController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \App\Http\Requests\UpdateProductPropertiesRequest  $request
-     * @param  \App\Models\ProductProperties  $productProperties
+     * @param  \App\Models\ProductProperty  $productProperties
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateProductPropertiesRequest $request, ProductProperties $productProperties)
+    public function update(UpdateProductPropertiesRequest $request, ProductProperty $productProperties)
     {
         //
     }
@@ -76,10 +76,10 @@ class ProductPropertiesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\ProductProperties  $productProperties
+     * @param  \App\Models\ProductProperty  $productProperties
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ProductProperties $productProperties)
+    public function destroy(ProductProperty $productProperties)
     {
         //
     }

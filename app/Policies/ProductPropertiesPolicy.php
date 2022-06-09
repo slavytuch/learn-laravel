@@ -2,7 +2,7 @@
 
 namespace App\Policies;
 
-use App\Models\ProductProperties;
+use App\Models\ProductProperty;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
@@ -25,10 +25,10 @@ class ProductPropertiesPolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\ProductProperties  $productProperties
+     * @param  \App\Models\ProductProperty  $productProperties
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, ProductProperties $productProperties)
+    public function view(User $user, ProductProperty $productProperties)
     {
         //
     }
@@ -48,10 +48,10 @@ class ProductPropertiesPolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\ProductProperties  $productProperties
+     * @param  \App\Models\ProductProperty  $productProperties
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, ProductProperties $productProperties)
+    public function update(User $user, ProductProperty $productProperties)
     {
         //
     }
@@ -60,10 +60,10 @@ class ProductPropertiesPolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\ProductProperties  $productProperties
+     * @param  \App\Models\ProductProperty  $productProperties
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, ProductProperties $productProperties)
+    public function delete(User $user, ProductProperty $productProperties)
     {
         //
     }
@@ -72,10 +72,10 @@ class ProductPropertiesPolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\ProductProperties  $productProperties
+     * @param  \App\Models\ProductProperty  $productProperties
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, ProductProperties $productProperties)
+    public function restore(User $user, ProductProperty $productProperties)
     {
         //
     }
@@ -84,10 +84,10 @@ class ProductPropertiesPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\ProductProperties  $productProperties
+     * @param  \App\Models\ProductProperty  $productProperties
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, ProductProperties $productProperties)
+    public function forceDelete(User $user, ProductProperty $productProperties)
     {
         //
     }

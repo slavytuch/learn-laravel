@@ -5,6 +5,7 @@ namespace App\Http\Resources;
 use App\Models\Product;
 use App\Models\ProductSection;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Collection;
 
 class ProductResource extends JsonResource
 {
@@ -26,6 +27,7 @@ class ProductResource extends JsonResource
             'price' => $this->price,
             'quantity' => $this->quantity,
             'section' => new ProductSectionResource(ProductSection::find($this->product_section_id)),
+            'properties' => new Collection($this->properties)
         ];
     }
 }

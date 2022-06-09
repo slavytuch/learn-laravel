@@ -52,4 +52,9 @@ class Product extends Model
         'quantity',
         'product_section_id'
     ];
+
+    public function properties()
+    {
+        return $this->belongsToMany(ProductProperty::class);
+    }
 }
