@@ -2,8 +2,8 @@
 
 namespace App\Http\Resources;
 
-use App\Models\Product;
 use Illuminate\Http\Resources\Json\ResourceCollection;
+use Illuminate\Pagination\Paginator;
 
 class ProductCollection extends ResourceCollection
 {
@@ -15,18 +15,11 @@ class ProductCollection extends ResourceCollection
      */
     public function toArray($request)
     {
-        /**
-         * @var $this Product
-        */
-        return [
-            'name' => $this->name,
-            'created' => $this->created_at,
-            'updated' => $this->updated_at,
-            'price' => $this->price,
-            'quantity' => $this->quantity,
-            'section' => ProductSectionCollection::collection($this->product_section_id),
-        ];
+        return array_merge(parent::toArray($request),
+            [
+                'count' => $this->collection->count(),
+                'page' => Paginator::resolveCurrentPage(),
+            ]
+        );
     }
-
-    public $collects = Product::class;
 }

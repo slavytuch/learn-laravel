@@ -4,9 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Product;
 use App\Models\ProductProperty;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use \Faker\Generator as Faker;
 
 class ProductProductPropertySeeder extends Seeder
 {
@@ -15,28 +13,17 @@ class ProductProductPropertySeeder extends Seeder
      *
      * @return void
      */
-    public function run(Faker $faker)
+    public function run()
     {
-        /*        $products = Product::all();
-
-                ProductProperty::all()->each(function ($property) use ($products) {
-                    $property->products()->attach(
-                        $products->random(rand(1, 3))->pluck('id')->toArray()
-                    );
-                });*/
-
         $properties = ProductProperty::all();
-
-        Product::all()->each(
-            fn($product) => $product->properties()->attach(
-                $properties->each(
-                    fn($property) => [
-                        $property['id'] => [
-                            'value' => $faker->randomNumber(4)
-                        ]
-                    ]
-                )
-            )
-        );
+        $products = Product::all();
+        foreach ($properties as $property) {
+            foreach ($products as $product) {
+                $rand = rand(1000, 10000);
+                $product->properties()->attach(
+                    [$property['id'] => ['value' => $rand]]
+                );
+            }
+        }
     }
 }

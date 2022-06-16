@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\ProductResource;
+use App\Http\Resources\ProductCollection;
+use App\Interfaces\CatalogFilterInterface;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class ProductController extends Controller
 {
@@ -13,10 +15,33 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request): Response
     {
         try {
-            return $this->success(ProductResource::collection(Product::all()));
+            $limit = $request->get('limit') ?? 15;
+            return $this->success(
+                new ProductCollection(
+                    Product::paginate($limit)
+                )
+            );
+        } catch (\Exception $ex) {
+            return $this->error($ex->getMessage());
+        }
+    }
+
+    public function filteredList(Request $request, CatalogFilterInterface $catalogFilter , $filter): Response
+    {
+        try {
+            $limit = $request->get('limit') ?? 15;
+            $page = $request->get('page') ?? 1;
+            return $this->success(
+                new ProductCollection(
+                    $catalogFilter->processFilter(
+                        $filter,
+                        Product::limit($limit)->offset($limit * ($page - 1))
+                    )
+                )
+            );
         } catch (\Exception $ex) {
             return $this->error($ex->getMessage());
         }

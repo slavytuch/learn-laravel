@@ -2,25 +2,25 @@
 
 namespace App\Http\Resources;
 
-use App\Models\ProductSection;
+use App\Models\ProductProperty;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class ProductSectionResource extends JsonResource
+class ProductPropertyResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param  \Illuminate\Http\Request  $request
      * @return array|\Illuminate\Contracts\Support\Arrayable|\JsonSerializable
      */
     public function toArray($request)
     {
-        /** @var $this ProductSection */
+        /**
+         * @var ProductProperty $this
+        */
         return [
             'name' => $this->name,
-            'created' => $this->created_at,
-            'updated' => $this->updated_at,
-            'children' => new ProductSectionCollection($this->children),
+            'value' => $this->pivot->value
         ];
     }
 }

@@ -34,6 +34,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Product whereUpdatedAt($value)
  * @mixin \Eloquent
  * @method static \Database\Factories\ProductFactory factory(...$parameters)
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ProductProperty[] $properties
+ * @property-read int|null $properties_count
  */
 class Product extends Model
 {
@@ -55,6 +57,6 @@ class Product extends Model
 
     public function properties()
     {
-        return $this->belongsToMany(ProductProperty::class);
+        return $this->belongsToMany(ProductProperty::class)->withPivot('value');
     }
 }
