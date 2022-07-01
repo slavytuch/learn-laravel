@@ -2,11 +2,11 @@
 
 namespace App\Providers;
 
-use App\Interfaces\Catalog\FilterInterface;
-use App\Services\FilterService;
+use App\Interfaces\Catalog\ProductInterface;
+use App\Services\Catalog\ProductService;
 use Illuminate\Support\ServiceProvider;
 
-class CatalogFilterServiceProvider extends ServiceProvider
+class CatalogProvider extends ServiceProvider
 {
     /**
      * Register services.
@@ -15,7 +15,7 @@ class CatalogFilterServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind(FilterInterface::class, FilterService::class);
+        $this->app->bind(ProductInterface::class, ProductService::class);
     }
 
     /**

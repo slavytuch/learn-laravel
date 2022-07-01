@@ -177,6 +177,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\CatalogFilterServiceProvider::class,
+        App\Providers\CatalogProvider::class,
     ],
 
     /*

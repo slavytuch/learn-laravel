@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Interfaces;
+namespace App\Interfaces\Catalog;
 
-use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Collection;
 
-interface CatalogFilterInterface
+interface FilterInterface
 {
     /**
      * Обрабатывает входящую строку запроса как фильтр

@@ -3,11 +3,11 @@
 namespace App\Services;
 
 use App\Enum\CatalogFilterOperation;
-use App\Interfaces\CatalogFilterInterface;
+use App\Interfaces\Catalog\FilterInterface;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
 
-class CatalogFilterService implements CatalogFilterInterface
+class FilterService implements FilterInterface
 {
     const STATEMENT_DELIMITER = '-and-';
     const RELATION = 'properties';

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\ProductCollection;
-use App\Interfaces\CatalogFilterInterface;
+use App\Interfaces\Catalog\FilterInterface;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -29,7 +29,7 @@ class ProductController extends Controller
         }
     }
 
-    public function filteredList(Request $request, CatalogFilterInterface $catalogFilter , $filter): Response
+    public function filteredList(Request $request, FilterInterface $catalogFilter , $filter): Response
     {
         try {
             $limit = $request->get('limit') ?? 15;
